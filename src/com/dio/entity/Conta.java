@@ -1,10 +1,14 @@
 package com.dio.entity;
 
-public class Conta implements MetodosConta{
+public abstract class Conta implements MetodosConta{
 
-	private int agencia;
+	private int agencia = 1;
 	private int numero;
-	private double saldo;
+	private double saldo = 0;
+	
+	public Conta() {
+		this.numero ++;
+	}
 	
 	public int getAgencia() {
 		return agencia;
@@ -32,16 +36,19 @@ public class Conta implements MetodosConta{
 
 	@Override
 	public void sacar(double valor) {
-		
+		if(valor <= this.saldo) {
+			this.saldo -=valor;
+		}
 	}
 
 	@Override
 	public void depositar(double valor) {
-		
+		this.saldo += valor;
 	}
 
 	@Override
 	public void transferir(double valor, Conta conta) {
+		sacar(valor);
 		
 	}
 
