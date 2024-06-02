@@ -1,14 +1,49 @@
 package com.dio.entity;
 
-public abstract class Conta {
+public class Conta implements MetodosConta{
 
 	private int agencia;
 	private int numero;
 	private double saldo;
 	
-	void sacar(double valor);
+	public int getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(int agencia) {
+		this.agencia = agencia;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	@Override
+	public void sacar(double valor) {
+		
+	}
+
+	@Override
+	public void depositar(double valor) {
+		
+	}
+
+	@Override
+	public void transferir(double valor, Conta conta) {
+		
+	}
+
 	
-	void depositar(double valor);
-	
-	void transferecia(double valor);
 }
