@@ -48,8 +48,14 @@ public abstract class Conta implements MetodosConta{
 
 	@Override
 	public void transferir(double valor, Conta conta) {
-		sacar(valor);
-		
+		this.sacar(valor);
+		conta.depositar(valor);
+	}
+	
+	protected void extrato() {
+		System.out.println("Agencia: %d " + getAgencia());
+		System.out.println("Numero: %d " + getNumero() );
+		System.out.println("Saldo: %.2d " + getSaldo());
 	}
 
 	
